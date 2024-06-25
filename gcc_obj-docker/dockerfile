@@ -1,0 +1,15 @@
+# 该镜像基于 ubunntu:22.04
+FROM ubuntu:22.04
+
+# 设置工作路径
+ENV MYPATH /data/src
+WORKDIR ${MYPATH}
+
+# 更新软件源，并安装对应工具
+# 支持 arm aarch64 x86-64 mips
+RUN apt update -qq \
+    && apt install binutils-arm-linux-gnueabi gcc-arm-linux-gnueabi binutils-x86-64-linux-gnu gcc-x86-64-linux-gnu \
+    binutils-aarch64-linux-gnu gcc-aarch64-linux-gnu binutils-mips-linux-gnu gcc-mips-linux-gnu -y
+
+# 让其在后台运行
+CMD ["tail", "-f", "/dev/null"]

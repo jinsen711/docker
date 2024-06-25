@@ -1,0 +1,1 @@
+FROM tangramor/slidev:latest

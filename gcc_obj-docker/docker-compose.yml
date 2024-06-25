@@ -1,0 +1,7 @@
+version: '3'
+services:
+  symbols:
+    image: symbols
+    container_name: symbols
+    volumes:
+      - ./src:/data/src
